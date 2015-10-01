@@ -38,8 +38,9 @@ public class MainFragment extends Fragment {
                     mProfileTracker.stopTracking();
                 }
             };
-
-            startActivity(new Intent(getContext(),home.class));
+            Intent intent = new Intent(getContext(),WelcomeActivity.class);
+            intent.putExtra("login", true);
+            startActivity(intent);
 
             mProfileTracker.startTracking();
 

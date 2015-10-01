@@ -5,4 +5,8 @@
     <string name="app_id">840634029390812</string>
     <string name="title_activity_home">home</string>
     <string name="title_activity_register">register</string>
+    <string name="emptyString" />
+    <string name="title_activity_tab1">tab1</string>
+    <string name="title_activity_tab2">tab2</string>
+    <string name="title_activity_tab3">tab3</string>
 </resources>
