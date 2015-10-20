@@ -8,7 +8,7 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:id="@+id/textView"
-        android:src="@mipmap/JitsiOrgLogo"
+        android:src="@mipmap/jitsiorglogo"
 
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -26,10 +26,10 @@
         android:id="@+id/createRoom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="77dp"
         android:layout_below="@+id/textView"
-        android:layout_alignRight="@+id/textView"
-        android:layout_alignEnd="@+id/textView"
-        android:layout_marginTop="77dp" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 
 </RelativeLayout>
