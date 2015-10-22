@@ -11,25 +11,24 @@
         android:src="@mipmap/jitsiorglogo"
 
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
     <EditText
         android:id="@+id/roomName"
-        android:layout_width="250dp"
+        android:layout_width="260dp"
         android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textStyle="bold"
         android:hint="Enter Room Name"
         android:layout_alignBottom="@+id/createRoom"
-        android:layout_toLeftOf="@+id/createRoom"
-        android:layout_toStartOf="@+id/createRoom" />
+        android:layout_alignParentStart="true" />
     <Button
-        android:text="Go"
-        android:id="@+id/createRoom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="77dp"
+        android:background="@drawable/button"
         android:layout_below="@+id/textView"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="90dp"
+        android:id="@+id/createRoom"
+        android:text="Go"
+        style="@style/button"/>
 
 
 </RelativeLayout>
