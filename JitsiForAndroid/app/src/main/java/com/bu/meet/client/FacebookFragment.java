@@ -1,4 +1,4 @@
-package com.bu.JitsiForAndroid;
+package com.bu.meet.client;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bu.meet.R;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -20,7 +21,7 @@ import com.facebook.login.widget.LoginButton;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class MainFragment extends Fragment {
+public class FacebookFragment extends Fragment {
 
     private CallbackManager mCallbackManager;
     public FacebookCallback<LoginResult> mCallback = new FacebookCallback<LoginResult>() {
@@ -57,7 +58,7 @@ public class MainFragment extends Fragment {
         }
     };
 
-    public MainFragment() {
+    public FacebookFragment() {
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.bu.JitsiForAndroid;
+package com.bu.meet;
 
 import junit.framework.TestCase;
 

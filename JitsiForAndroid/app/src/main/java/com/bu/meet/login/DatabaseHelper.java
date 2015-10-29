@@ -1,4 +1,4 @@
-package com.bu.JitsiForAndroid;
+package com.bu.meet.login;
 
 import android.content.ContentValues;
 import android.content.Context;
