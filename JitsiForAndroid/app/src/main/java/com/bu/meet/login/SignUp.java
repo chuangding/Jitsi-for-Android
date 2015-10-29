@@ -1,10 +1,12 @@
-package com.bu.JitsiForAndroid;
+package com.bu.meet.login;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.bu.meet.R;
 
 /**
  * Created by HL on 28-09-2015.

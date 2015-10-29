@@ -1,4 +1,4 @@
-package com.bu.JitsiForAndroid;
+package com.bu.meet.client;
 
 import android.annotation.TargetApi;
 import android.net.http.SslError;
@@ -13,6 +13,8 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import com.bu.meet.R;
 
 public class Room extends AppCompatActivity {
 
@@ -43,20 +45,13 @@ public class Room extends AppCompatActivity {
         });
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        webView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
-        webView.setScrollbarFadingEnabled(false);
-        webView.getSettings().
-        setBuiltInZoomControls(true);
-        webView.getSettings().
-        setAllowFileAccess(true);
-        webView.getSettings().
-        setSupportZoom(true);
+        webView.getSettings().setAllowFileAccess(true);
         webSettings.setDomStorageEnabled(true);
         webSettings.getUserAgentString();
         webSettings.setAllowFileAccessFromFileURLs(true);
         webSettings.setAllowUniversalAccessFromFileURLs(true);
         webSettings.getUserAgentString();
-        webSettings.setUserAgentString("Chrome/29.0.1547 Mobile");
+       // webSettings.setUserAgentString("Chrome/29.0.1547 Mobile");
         String roomName = getIntent().getExtras().get("roomName").toString();
         webView.loadUrl("https://ec2-54-148-48-185.us-west-2.compute.amazonaws.com/"+roomName);
     }

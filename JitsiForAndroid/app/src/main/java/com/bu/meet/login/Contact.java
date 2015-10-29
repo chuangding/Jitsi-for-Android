@@ -1,4 +1,4 @@
-package com.bu.JitsiForAndroid;
+package com.bu.meet.login;
 
 /**
  * Created by HL on 30-09-2015.

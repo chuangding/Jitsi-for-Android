@@ -1,11 +1,13 @@
-package com.bu.JitsiForAndroid;
+package com.bu.meet.client;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTabHost;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.EditText;
+
+import com.bu.meet.R;
 
 /**
  * Created by Seshank on 9/30/2015.
@@ -19,15 +21,8 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-        mTabHost = (FragmentTabHost)findViewById(android.R.id.tabhost);
-        mTabHost.setup(this, getSupportFragmentManager(), R.id.realtabcontent);
 
-        mTabHost.addTab(mTabHost.newTabSpec("tab1").setIndicator("Tab1"),
-                tab1.class, null);
-        mTabHost.addTab(mTabHost.newTabSpec("tab2").setIndicator("Tab2"),
-                tab2.class, null);
-        mTabHost.addTab(mTabHost.newTabSpec("tab3").setIndicator("Tab3"),
-                tab3.class, null);
+
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
         if(!extras.getBoolean("login")){
@@ -38,11 +33,21 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
             startActivity(intent1);
         }
 
+         /*focus border color*/
+       EditText tv=(EditText)findViewById(R.id.roomName);
+        tv.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 
+            public void onFocusChange(View view, boolean hasfocus) {
+                if (hasfocus) {
+
+                    view.setBackgroundResource(R.drawable.focus_border_style);
+                } else {
+                    view.setBackgroundResource(R.drawable.lost_focus_style);
+                }
+            }
+        });
         String username = getIntent().getStringExtra("Username");
 
-        //TextView tv = (TextView)findViewById(R.id.TVusername);
-       // tv.setText(username);
 
     }
 
@@ -51,6 +56,17 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         if (view.getId() == R.id.sign_out_button) {
             onSignOutClicked();
         }
+        else if(view.getId() == R.id.createRoom){
+            OnCreateOrJoinRoomClicked();
+        }
+    }
+
+    private void OnCreateOrJoinRoomClicked() {
+        EditText editText = (EditText)findViewById(R.id.roomName);
+        String roomName = editText.getText().toString();
+        Intent intent = new Intent(this,Room.class);
+        intent.putExtra("roomName",roomName);
+        startActivity(intent);
     }
 
     private void onSignOutClicked() {
@@ -60,6 +76,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         Intent intent = new Intent(this,MainActivity.class);
         intent.putExtra("signout", true);
         intent.putExtra("login",false);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
         //showSignedOutUI();
     }

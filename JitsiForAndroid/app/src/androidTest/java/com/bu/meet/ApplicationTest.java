@@ -1,4 +1,4 @@
-package com.bu.JitsiForAndroid;
+package com.bu.meet;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
