@@ -1,9 +1,8 @@
-package com.bu.JitsiForAndroid;
+package com.bu.meet.client;
 
 import android.content.Intent;
 import android.content.IntentSender;
 import android.os.Bundle;
-import android.support.v4.app.FragmentTabHost;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,6 +12,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bu.meet.login.DatabaseHelper;
+import com.bu.meet.R;
+import com.bu.meet.login.SignUp;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
@@ -88,22 +90,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     @Override
     public void onClick(View v) {
 
-       /* switch (v.getId()){
-            case R.id.bLogin:
-                //User user = new User(null, null);
-
-                //userLocalStore.storeUserData(user);
-                //userLocalStore.setUserLoggedIn(true);
-
-
-
-                break;
-            case R.id.tvRegisterLink:
-                startActivity(new Intent(this, register.class));
-                break;
-        }*/
-
-        if (v.getId() == R.id.sign_in_button) {
+            if (v.getId() == R.id.sign_in_button) {
             onSignInClicked();
         }
     }

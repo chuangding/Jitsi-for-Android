@@ -1,4 +1,4 @@
-package com.bu.JitsiForAndroid;
+package com.bu.meet.client;
 
 
 import android.app.Application;
