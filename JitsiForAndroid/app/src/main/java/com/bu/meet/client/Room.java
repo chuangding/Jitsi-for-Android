@@ -51,7 +51,7 @@ public class Room extends AppCompatActivity {
         webSettings.setAllowFileAccessFromFileURLs(true);
         webSettings.setAllowUniversalAccessFromFileURLs(true);
         webSettings.getUserAgentString();
-       // webSettings.setUserAgentString("Chrome/29.0.1547 Mobile");
+        webSettings.setUserAgentString("Chrome/29.0.1547 Mobile");
         String roomName = getIntent().getExtras().get("roomName").toString();
         webView.loadUrl("https://ec2-54-148-48-185.us-west-2.compute.amazonaws.com/"+roomName);
     }
