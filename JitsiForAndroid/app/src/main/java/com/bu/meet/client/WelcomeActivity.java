@@ -4,8 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTabHost;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.bu.meet.R;
 
@@ -53,10 +57,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
 
     public void onClick(View view) {
         // ...
-        if (view.getId() == R.id.sign_out_button) {
-            onSignOutClicked();
-        }
-        else if(view.getId() == R.id.createRoom){
+        if(view.getId() == R.id.createRoom){
             OnCreateOrJoinRoomClicked();
         }
     }
@@ -79,5 +80,34 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
         //showSignedOutUI();
+    }
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_welcome, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    public boolean onOptionsItemSelected(MenuItem item){
+
+        switch (item.getItemId()){
+            case R.id.item_option1:
+                //Toast.makeText(getApplicationContext(), item.toString(), Toast.LENGTH_SHORT).show();
+                onSignOutClicked();
+                break;
+
+            case R.id.item_option2:
+                Toast.makeText(getApplicationContext(),item.toString(),Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.item_option3:
+                Toast.makeText(getApplicationContext(),item.toString(),Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.item_option4:
+                Toast.makeText(getApplicationContext(),item.toString(),Toast.LENGTH_SHORT).show();
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
