@@ -7,13 +7,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Name"
-        android:id="@+id/textView4" />
+        android:text="First Name"
+        android:id="@+id/textView4First" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/TFname"
+        android:layout_gravity="center_horizontal" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Last Name"
+        android:id="@+id/textView4Last" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/TLname"
         android:layout_gravity="center_horizontal" />
 
     <TextView
@@ -27,18 +38,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/TFemail" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="User Name"
-        android:id="@+id/textView6" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/TFuname" />
 
     <TextView
         android:layout_width="wrap_content"
