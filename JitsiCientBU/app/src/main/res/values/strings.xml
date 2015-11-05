@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">BU meet</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_web_view">WebView</string>
+    <string name="title_activity_room">Meet</string>
+    <string name="title_activity_surface_view_room">SurfaceViewRoom</string>
+</resources>

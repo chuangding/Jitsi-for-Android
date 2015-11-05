@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:layout_width="match_parent">
+
+    <EditText
+        android:id="@+id/TFname"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:hint="First Name"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/TFuname"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="10dp"
+        android:hint="Last Name"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/TFemail"
+        android:layout_width="match_parent"
+        android:hint="Email"
+        android:layout_marginBottom="10dp"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/TFpass1"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="10dp"
+        android:inputType="textPassword"
+        android:hint="Password"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/TFpass2"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="10dp"
+        android:inputType="textPassword"
+        android:hint="Re-enter Password"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/Bsignupbutton"
+        android:text="SIGN UP"
+        android:onClick="onSignUpClick"
+        android:background="@drawable/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>
