@@ -9,6 +9,7 @@ public class Contact {
     String emailID;
     String lastName;
     String password;
+    String responseMessage;
 
     public String getFirstName() {
         return firstName;
@@ -40,6 +41,13 @@ public class Contact {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    public String getResponseMessage() {
+        return responseMessage;
+    }
+
+    public void setResponseMessage(String responseMessage) {
+        this.responseMessage = responseMessage;
     }
 
     public String toString() {

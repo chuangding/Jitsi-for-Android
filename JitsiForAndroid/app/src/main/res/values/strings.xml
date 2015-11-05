@@ -6,4 +6,11 @@
     <string name="title_activity_register">register</string>
     <string name="emptyString" />
     <string name="title_activity_room">Meet</string>
+    <string name="title_activity_contacts">contacts</string>
+    <string name="title_activity_signup">signup</string>
+    <string name="title_activity_sign_up">sign_up</string>
+    <string name="title_activity_new_contact">newContact</string>
+    <string name="title_activity_new_contacts">NewContacts</string>
+    <string name="title_activity_friends">Friends</string>
+    <string name="title_activity_add_friends">AddFriends</string>
 </resources>

@@ -56,8 +56,10 @@ public class SignUp extends Activity {
                     newUser.setLastName(lastNamestr);
                     newUser.setEmailID(emailIDStr);
                     newUser.setPassword(pass1str);
-                    new DBSyncUtil().execute(newUser);
+                    new DBSyncUtil(this).execute(newUser);
+
                 }
+
             }
         }
     }

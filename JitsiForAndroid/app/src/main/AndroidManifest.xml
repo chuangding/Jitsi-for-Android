@@ -17,7 +17,6 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
 
@@ -43,24 +42,47 @@
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-            android:label="@string/app_name"
+            android:label="Facebook Login"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
-            android:name="com.bu.meet.client.Room"
-            android:configChanges="orientation|screenSize"
-            android:label="@string/title_activity_room" >
+            android:name=".login.Register"
+            android:label="Sign Up"
+            android:parentActivityName=".client.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.bu.meet.client.MainActivity" />
         </activity>
         <activity
-            android:name="com.bu.meet.login.Register"
-            android:label="@string/title_activity_register" >
+            android:name=".client.WelcomeActivity"
+            android:label="Welcome" >
         </activity>
+        <activity
+            android:name=".client.Room"
+            android:configChanges="orientation|screenSize"
+            android:label="Room"
+            android:parentActivityName=".client.WelcomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.bu.meet.client.WelcomeActivity" />
+        </activity>
+
         <activity android:name="com.bu.meet.login.SignUp"></activity>
         <activity
-            android:name="com.bu.meet.client.WelcomeActivity"
-            android:label="@string/app_name" >
-
+            android:name=".client.Friends"
+            android:label="@string/title_activity_friends"
+            android:parentActivityName=".client.WelcomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.bu.meet.client.WelcomeActivity" />
         </activity>
-
+        <activity
+            android:name=".client.AddFriends"
+            android:label="@string/title_activity_add_friends"
+            android:parentActivityName=".client.WelcomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.bu.meet.client.WelcomeActivity" />
+        </activity>
     </application>
 
 </manifest>
