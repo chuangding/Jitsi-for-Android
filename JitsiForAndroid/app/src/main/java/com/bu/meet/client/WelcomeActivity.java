@@ -96,8 +96,11 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
                 break;
 
             case R.id.item_option2:
-                Toast.makeText(getApplicationContext(),item.toString(),Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),item.toString(),Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(WelcomeActivity.this,Friends.class);
+                startActivity(i);
                 break;
+
 
             case R.id.item_option3:
                 Toast.makeText(getApplicationContext(),item.toString(),Toast.LENGTH_SHORT).show();

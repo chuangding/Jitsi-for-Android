@@ -70,6 +70,14 @@
             android:label="Contacts"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
+        <activity
+            android:name=".client.Friends"
+            android:label="@string/title_activity_friends" >
+        </activity>
+        <activity
+            android:name=".client.AddFriends"
+            android:label="@string/title_activity_add_friends" >
+        </activity>
     </application>
 
 </manifest>
