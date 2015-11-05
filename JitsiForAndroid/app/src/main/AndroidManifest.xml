@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.bu.meet" >
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+
+    <application
+        android:name=".client.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/logo"
+        android:label="BU Meet"
+        android:theme="@style/AppTheme" >
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/app_id" />
+
+        <activity
+            android:name=".client.MainActivity"
+            android:label="BU Meet" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="Facebook Login"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name=".login.Register"
+            android:label="Sign Up"
+            android:parentActivityName=".client.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.bu.meet.client.MainActivity" />
+        </activity>
+        <activity
+            android:name=".client.WelcomeActivity"
+            android:label="Welcome" >
+        </activity>
+        <activity
+            android:name=".client.Room"
+            android:configChanges="orientation|screenSize"
+            android:label="Room"
+            android:parentActivityName=".client.WelcomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.bu.meet.client.WelcomeActivity" />
+        </activity>
+        <activity
+            android:name=".client.contacts"
+            android:label="Contacts"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".client.Friends"
+            android:label="@string/title_activity_friends" >
+        </activity>
+        <activity
+            android:name=".client.AddFriends"
+            android:label="@string/title_activity_add_friends" >
+        </activity>
+    </application>
+
+</manifest>
