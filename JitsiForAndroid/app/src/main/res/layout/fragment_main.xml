@@ -5,55 +5,85 @@
     android:padding="10dp"
     android:layout_width="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:text="Username"
-        android:layout_height="wrap_content" />
+
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/TFusername"
+        android:hint="Username/Email"
+        android:layout_marginTop="20dp"
         android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:text="Password"
-        android:layout_height="wrap_content" />
+
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/TFpassword"
+        android:layout_marginTop="10dp"
+        android:hint="Password"
         android:layout_below="@+id/textView3"
         android:layout_centerHorizontal="true" />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Login"
-        android:id="@+id/Blogin"
-        android:onClick="onButtonClick"
-        android:layout_below="@+id/TFpassword"
-        android:layout_centerHorizontal="true"
-        />
 
-    <Button
+    <LinearLayout
+        android:id="@+id/linear_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sign Up Here"
-        android:id="@+id/Bsignup"
-        android:layout_below="@+id/Blogin"
-        android:layout_centerHorizontal="true"
-        android:onClick="onButtonClick" />
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        >
+
+        <Button
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:id="@+id/Blogin"
+            android:onClick="onButtonClick"
+            android:background="@drawable/button"
+            android:layout_marginRight="5dp"
+            android:layout_below="@+id/TFpassword"
+            android:layout_centerHorizontal="true"
+            />
+
+        <Button
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Sign Up"
+            android:id="@+id/Bsignup"
+            android:background="@drawable/button"
+            android:layout_below="@+id/Blogin"
+            android:layout_centerHorizontal="true"
+            android:onClick="onButtonClick" />
+
+    </LinearLayout>
+
+
+
+
+
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/sign_in_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+
         />
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_gravity="center_horizontal"
+        />
+
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
@@ -67,13 +97,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <com.facebook.login.widget.LoginButton
-            android:id="@+id/login_button"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="0dp"
-            android:layout_marginBottom="10dp" />
 
     </RelativeLayout>
 
