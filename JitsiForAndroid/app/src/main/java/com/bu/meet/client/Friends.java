@@ -1,12 +1,12 @@
 package com.bu.meet.client;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
+
 import com.bu.meet.R;
 public class Friends extends AppCompatActivity {
 
@@ -17,6 +17,9 @@ public class Friends extends AppCompatActivity {
     }
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -37,14 +40,20 @@ public class Friends extends AppCompatActivity {
                 Intent i = new Intent(Friends.this,AddFriends.class);
                 startActivity(i);
                 break;
+//
+//            case R.id.item_option2:
+//                Toast.makeText(getApplicationContext(), item.toString(), Toast.LENGTH_SHORT).show();
+//                break;
+//
+//            case R.id.item_option3:
+//                Toast.makeText(getApplicationContext(),item.toString(),Toast.LENGTH_SHORT).show();
+//                break;
 
-            case R.id.item_option2:
-                Toast.makeText(getApplicationContext(), item.toString(), Toast.LENGTH_SHORT).show();
-                break;
-
-            case R.id.item_option3:
-                Toast.makeText(getApplicationContext(),item.toString(),Toast.LENGTH_SHORT).show();
-                break;
+            case android.R.id.home:
+                this.finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
 
 
         }

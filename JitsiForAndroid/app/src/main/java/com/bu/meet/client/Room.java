@@ -4,7 +4,6 @@ import android.annotation.TargetApi;
 import android.net.http.SslError;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -76,7 +75,7 @@ public class Room extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()) {
             case android.R.id.home:
-                NavUtils.navigateUpFromSameTask(this);
+                this.finish();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

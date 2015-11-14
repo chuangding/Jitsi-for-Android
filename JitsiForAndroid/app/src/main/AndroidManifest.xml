@@ -21,18 +21,18 @@
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
 
     <application
-        android:name=".client.MyApplication"
+        android:name="com.bu.meet.client.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/logo"
-        android:label="BU Meet"
+        android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/app_id" />
 
         <activity
-            android:name=".client.MainActivity"
-            android:label="BU Meet" >
+            android:name="com.bu.meet.client.MainActivity"
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -65,18 +65,23 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.bu.meet.client.WelcomeActivity" />
         </activity>
-        <activity
-            android:name=".client.contacts"
-            android:label="Contacts"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+
+        <activity android:name="com.bu.meet.login.SignUp"></activity>
         <activity
             android:name=".client.Friends"
-            android:label="@string/title_activity_friends" >
+            android:label="@string/title_activity_friends"
+            android:parentActivityName=".client.WelcomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.bu.meet.client.WelcomeActivity" />
         </activity>
         <activity
             android:name=".client.AddFriends"
-            android:label="@string/title_activity_add_friends" >
+            android:label="@string/title_activity_add_friends"
+            android:parentActivityName=".client.WelcomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.bu.meet.client.WelcomeActivity" />
         </activity>
     </application>
 
