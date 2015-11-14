@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:hint="Enter Email/Username"
-        android:id="@+id/editText"
+        android:id="@+id/friendEmailID"
         android:background="@drawable/focus_border_style"
 
         android:layout_marginTop="100dp"
@@ -24,10 +24,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="SEARCH"
-        android:id="@+id/button"
+        android:id="@+id/buttonAddFriend"
         android:background="@drawable/button"
         android:layout_marginTop="30dp"
-        android:layout_below="@+id/editText"
+        android:layout_below="@+id/friendEmailID"
         android:layout_centerHorizontal="true" />
 
 

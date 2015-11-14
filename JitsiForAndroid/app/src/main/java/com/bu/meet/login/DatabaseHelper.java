@@ -48,10 +48,10 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         int count=cursor.getCount();
 
         values.put(COLUMN_ID,count);
-        values.put(COLUMN_NAME, c.getName());
+        /*values.put(COLUMN_NAME, c.getName());
         values.put(COLUMN_EMAIL,c.getEmail());
         values.put(COLUMN_UNAME,c.getUname());
-        values.put(COLUMN_PASS, c.getPass());
+        values.put(COLUMN_PASS, c.getPass());*/
 
         db.insert(TABLE_NAME, null, values);
         db.close();

@@ -15,12 +15,12 @@
             android:layout_weight="0.2"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
-            android:src="@mipmap/logo"/>
+            android:src="@mipmap/barackobama"/>
         <TextView
             android:layout_height="fill_parent"
             android:layout_width="0dip"
             android:layout_weight="0.8"
-            android:text="Title"
+            android:text="Obama"
             android:gravity="center_vertical"
             android:textSize="30sp"
             android:textColor="#000000"/>
@@ -37,100 +37,12 @@
             android:layout_weight="0.2"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
-            android:src="@mipmap/logo"/>
+            android:src="@mipmap/donaldtrump"/>
         <TextView
             android:layout_height="fill_parent"
             android:layout_width="0dip"
             android:layout_weight="0.8"
-            android:text="Title"
-            android:gravity="center_vertical"
-            android:textSize="30sp"
-            android:textColor="#000000"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/lost_focus_style"
-        android:gravity="left">
-        <ImageView
-            android:id="@+id/image3"
-            android:layout_weight="0.2"
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/logo"/>
-        <TextView
-            android:layout_height="fill_parent"
-            android:layout_width="0dip"
-            android:layout_weight="0.8"
-            android:text="Title"
-            android:gravity="center_vertical"
-            android:textSize="30sp"
-            android:textColor="#000000"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/lost_focus_style"
-        android:gravity="left">
-        <ImageView
-            android:id="@+id/image4"
-            android:layout_weight="0.2"
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/logo"/>
-        <TextView
-            android:layout_height="fill_parent"
-            android:layout_width="0dip"
-            android:layout_weight="0.8"
-            android:text="Title"
-            android:gravity="center_vertical"
-            android:textSize="30sp"
-            android:textColor="#000000"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/lost_focus_style"
-        android:gravity="left">
-        <ImageView
-            android:id="@+id/image5"
-            android:layout_weight="0.2"
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/logo"/>
-        <TextView
-            android:layout_height="fill_parent"
-            android:layout_width="0dip"
-            android:layout_weight="0.8"
-            android:text="Title"
-            android:gravity="center_vertical"
-            android:textSize="30sp"
-            android:textColor="#000000"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/lost_focus_style"
-        android:gravity="left">
-        <ImageView
-            android:id="@+id/image6"
-            android:layout_weight="0.2"
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/logo"/>
-        <TextView
-            android:layout_height="fill_parent"
-            android:layout_width="0dip"
-            android:layout_weight="0.8"
-            android:text="Title"
+            android:text="Donald Trump"
             android:gravity="center_vertical"
             android:textSize="30sp"
             android:textColor="#000000"/>
@@ -147,12 +59,12 @@
             android:layout_weight="0.2"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
-            android:src="@mipmap/logo"/>
+            android:src="@mipmap/hillaryclinton"/>
         <TextView
             android:layout_height="fill_parent"
             android:layout_width="0dip"
             android:layout_weight="0.8"
-            android:text="Title"
+            android:text="Hillary Clinton"
             android:gravity="center_vertical"
             android:textSize="30sp"
             android:textColor="#000000"/>
@@ -169,12 +81,12 @@
             android:layout_weight="0.2"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
-            android:src="@mipmap/logo"/>
+            android:src="@mipmap/xijinping"/>
         <TextView
             android:layout_height="fill_parent"
             android:layout_width="0dip"
             android:layout_weight="0.8"
-            android:text="Title"
+            android:text="Jinping Xi"
             android:gravity="center_vertical"
             android:textSize="30sp"
             android:textColor="#000000"/>
