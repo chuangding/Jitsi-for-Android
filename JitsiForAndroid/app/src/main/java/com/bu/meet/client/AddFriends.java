@@ -4,9 +4,14 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 
 import com.bu.meet.R;
-public class AddFriends extends AppCompatActivity {
+import com.bu.meet.login.AddContactUtil;
+import com.bu.meet.login.Contact;
+
+public class AddFriends extends AppCompatActivity implements View.OnClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,5 +55,20 @@ public class AddFriends extends AppCompatActivity {
 //        }
 //
 //        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View view) {
+        if(view.getId() == R.id.buttonAddFriend){
+            addContact();
+        }
+    }
+
+    private void addContact() {
+
+        Contact contact = new Contact();
+        EditText email = (EditText) findViewById(R.id.friendEmailID);
+        contact.setEmailID(email.getText().toString());
+        new AddContactUtil(this).execute(contact);
     }
 }
