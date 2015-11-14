@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.net.http.SslError;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -51,9 +52,14 @@ public class Room extends AppCompatActivity {
         webSettings.setAllowFileAccessFromFileURLs(true);
         webSettings.setAllowUniversalAccessFromFileURLs(true);
         webSettings.getUserAgentString();
-       // webSettings.setUserAgentString("Chrome/29.0.1547 Mobile");
+        webSettings.setUserAgentString("Chrome/29.0.1547 Mobile");
         String roomName = getIntent().getExtras().get("roomName").toString();
         webView.loadUrl("https://ec2-54-148-48-185.us-west-2.compute.amazonaws.com/"+roomName);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 
         @Override
@@ -68,13 +74,21 @@ public class Room extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
 
-        return super.onOptionsItemSelected(item);
+//        int id = item.getItemId();
+//
+//        //noinspection SimplifiableIfStatement
+//        if (id == R.id.action_settings) {
+//            return true;
+//        }
+//
+//        return super.onOptionsItemSelected(item);
     }
 }

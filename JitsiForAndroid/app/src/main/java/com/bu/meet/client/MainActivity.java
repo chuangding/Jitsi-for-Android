@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.bu.meet.login.DatabaseHelper;
 import com.bu.meet.R;
-import com.bu.meet.login.SignUp;
+import com.bu.meet.login.Register;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
@@ -41,11 +41,13 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        etUsername = (EditText)findViewById(R.id.etUsername);
-        etPassword = (EditText)findViewById(R.id.etPassword);
+//        etUsername = (EditText)findViewById(R.id.etUsername);
+//        etPassword = (EditText)findViewById(R.id.etPassword);
         //bLogin = (Button)findViewById(R.id.bLogin);
         //tvRegisterLink = (TextView)findViewById(R.id.tvRegisterLink);
 
@@ -244,7 +246,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
             }
         }
         if(v.getId()==R.id.Bsignup){
-            Intent i=new Intent(MainActivity.this,SignUp.class);
+            Intent i=new Intent(MainActivity.this,Register.class);
             i.putExtra("login",true);
             startActivity(i);
         }

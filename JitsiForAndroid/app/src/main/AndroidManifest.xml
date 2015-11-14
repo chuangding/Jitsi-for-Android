@@ -17,23 +17,22 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
 
     <application
-        android:name="com.bu.meet.client.MyApplication"
+        android:name=".client.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/logo"
-        android:label="@string/app_name"
+        android:label="BU Meet"
         android:theme="@style/AppTheme" >
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/app_id" />
 
         <activity
-            android:name="com.bu.meet.client.MainActivity"
-            android:label="@string/app_name" >
+            android:name=".client.MainActivity"
+            android:label="BU Meet" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -43,24 +42,42 @@
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-            android:label="@string/app_name"
+            android:label="Facebook Login"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
-            android:name="com.bu.meet.client.Room"
+            android:name=".login.Register"
+            android:label="Sign Up"
+            android:parentActivityName=".client.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.bu.meet.client.MainActivity" />
+        </activity>
+        <activity
+            android:name=".client.WelcomeActivity"
+            android:label="Welcome" >
+        </activity>
+        <activity
+            android:name=".client.Room"
             android:configChanges="orientation|screenSize"
-            android:label="@string/title_activity_room" >
+            android:label="Room"
+            android:parentActivityName=".client.WelcomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.bu.meet.client.WelcomeActivity" />
         </activity>
         <activity
-            android:name="com.bu.meet.login.Register"
-            android:label="@string/title_activity_register" >
+            android:name=".client.contacts"
+            android:label="Contacts"
+            android:theme="@style/AppTheme.NoActionBar" >
         </activity>
-        <activity android:name="com.bu.meet.login.SignUp"></activity>
         <activity
-            android:name="com.bu.meet.client.WelcomeActivity"
-            android:label="@string/app_name" >
-
+            android:name=".client.Friends"
+            android:label="@string/title_activity_friends" >
         </activity>
-
+        <activity
+            android:name=".client.AddFriends"
+            android:label="@string/title_activity_add_friends" >
+        </activity>
     </application>
 
 </manifest>
