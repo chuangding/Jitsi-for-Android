@@ -1,20 +1,20 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
-    <item
-        android:id="@+id/item_option1"
-        android:title="option1"
-        />
-    <item
-        android:id="@+id/item_option2"
-        android:title="option2"
-        />
-    <item
-        android:id="@+id/item_option3"
-        android:title="option3"
-        />
-    <item
-        android:id="@+id/item_option4"
-        android:title="option4"
+    <!--<item-->
+        <!--android:id="@+id/item_option1"-->
+        <!--android:title="option1"-->
+        <!--/>-->
+    <!--<item-->
+        <!--android:id="@+id/item_option2"-->
+        <!--android:title="option2"-->
+        <!--/>-->
+    <!--<item-->
+        <!--android:id="@+id/item_option3"-->
+        <!--android:title="option3"-->
+        <!--/>-->
+    <!--<item-->
+        <!--android:id="@+id/item_option4"-->
+        <!--android:title="option4"-->
         />
 </menu>
