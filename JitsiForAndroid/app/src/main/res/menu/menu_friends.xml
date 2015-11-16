@@ -6,6 +6,10 @@
         android:id="@+id/item_addContact"
         android:title="Add Contact"
         />
+    <item
+        android:id="@+id/SignOut"
+        android:title="Sign Out"
+        />
     <!--<item-->
         <!--android:id="@+id/item_option2"-->
         <!--android:title="option2"-->

@@ -28,6 +28,17 @@ public class Friends extends AppCompatActivity {
         menuInflater.inflate(R.menu.menu_friends, menu);
         return super.onCreateOptionsMenu(menu);
     }
+    private void onSignOutClicked() {
+        // Clear the default account so that GoogleApiClient will not automatically
+        // connect in the future.
+
+        Intent intent = new Intent(this,MainActivity.class);
+        intent.putExtra("signout", true);
+        intent.putExtra("login",false);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        //showSignedOutUI();
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -52,6 +63,10 @@ public class Friends extends AppCompatActivity {
             case android.R.id.home:
                 this.finish();
                 return true;
+            case R.id.SignOut:
+                //Toast.makeText(getApplicationContext(),item.toString(),Toast.LENGTH_SHORT).show();
+                onSignOutClicked();
+                break;
             default:
                 return super.onOptionsItemSelected(item);
 

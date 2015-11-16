@@ -1,6 +1,7 @@
 package com.bu.meet.client;
 
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.net.http.SslError;
 import android.os.Build;
 import android.os.Bundle;
@@ -67,6 +68,17 @@ public class Room extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_room, menu);
         return true;
     }
+    private void onSignOutClicked() {
+        // Clear the default account so that GoogleApiClient will not automatically
+        // connect in the future.
+
+        Intent intent = new Intent(this,MainActivity.class);
+        intent.putExtra("signout", true);
+        intent.putExtra("login",false);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        //showSignedOutUI();
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -77,8 +89,12 @@ public class Room extends AppCompatActivity {
             case android.R.id.home:
                 this.finish();
                 return true;
-            default:
-                return super.onOptionsItemSelected(item);
+//            default:
+//                return super.onOptionsItemSelected(item);
+            case R.id.SignOut:
+                //Toast.makeText(getApplicationContext(),item.toString(),Toast.LENGTH_SHORT).show();
+                onSignOutClicked();
+                break;
         }
 
 //        int id = item.getItemId();
@@ -88,6 +104,6 @@ public class Room extends AppCompatActivity {
 //            return true;
 //        }
 //
-//        return super.onOptionsItemSelected(item);
+        return super.onOptionsItemSelected(item);
     }
 }
