@@ -9,7 +9,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.bu.meet.R;
 
@@ -29,7 +28,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
 
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
-        if(!extras.getBoolean("login")){
+        if(extras == null || (extras != null && !extras.getBoolean("login"))){
 
             Intent intent1 = new Intent(this,MainActivity.class);
             intent1.putExtra("signout", true);
@@ -102,13 +101,13 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
                 break;
 
 
-            case R.id.item_option3:
-                Toast.makeText(getApplicationContext(),item.toString(),Toast.LENGTH_SHORT).show();
-                break;
-
-            case R.id.item_option4:
-                Toast.makeText(getApplicationContext(),item.toString(),Toast.LENGTH_SHORT).show();
-                break;
+//            case R.id.item_option3:
+//                Toast.makeText(getApplicationContext(),item.toString(),Toast.LENGTH_SHORT).show();
+//                break;
+//
+//            case R.id.item_option4:
+//                Toast.makeText(getApplicationContext(),item.toString(),Toast.LENGTH_SHORT).show();
+//                break;
         }
 
         return super.onOptionsItemSelected(item);
