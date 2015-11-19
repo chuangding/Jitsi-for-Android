@@ -3,7 +3,8 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:padding="10dp"
-    android:layout_width="match_parent">
+    android:layout_width="match_parent"
+    android:background="#a2ab9a">
 
     <EditText
         android:id="@+id/TFname"

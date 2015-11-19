@@ -1,11 +1,12 @@
-package com.bu.meet.login;
+package com.bu.meet.util;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
-import com.bu.meet.client.WelcomeActivity;
+import com.bu.meet.client.MainActivity;
+import com.bu.meet.model.Contact;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParser;
 
@@ -20,94 +21,86 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+
 /**
- * Created by Seshank on 11/4/2015.
+ * Created by Ganesh Seshank on 11/3/2015.
  */
-public class SignInUtil extends AsyncTask {
+public class DBSyncUtil extends AsyncTask {
 
     Activity activity = null;
-    Contact contact= null;
-    public SignInUtil(Activity activity){
+    Contact contact = null;
+    public DBSyncUtil(Activity activity){
         this.activity = activity;
     }
     @Override
-    protected Object doInBackground(Object[] params) {
-
+    protected Object doInBackground(Object... params) {
+        {
             URL url = null;
             try {
-                url = new URL("http://Default-Environment-tvztzayeca.elasticbeanstalk.com/api/verify");
+                url = new URL(BUMeetConstants.SERVICE_BASE_URL+BUMeetConstants.REGISTER_ENDPOINT);
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
-            HttpURLConnection requestStops = null;
+            HttpURLConnection connection = null;
             try {
-                requestStops = (HttpURLConnection) url.openConnection();
+                connection = (HttpURLConnection) url.openConnection();
             } catch (IOException e) {
                 e.printStackTrace();
             }
             DataOutputStream printout;
             DataInputStream input;
-            requestStops.setRequestProperty("Content-Type", "application/json");
-            requestStops.setDoInput(true);
-            requestStops.setDoOutput(true);
+            connection.setRequestProperty(BUMeetConstants.CONTENT_TYPE, BUMeetConstants.APPLICATION_JSON);
+            connection.setDoInput(true);
+            connection.setDoOutput(true);
             try {
-                requestStops.connect();
+                connection.connect();
             } catch (IOException e) {
                 e.printStackTrace();
             }
             contact = (Contact)params[0];
             JSONObject obj = new JSONObject();
             try {
-                obj.put("firstName","");
-                obj.put("lastName","");
-                obj.put("emailID",contact.getEmailID());
-                obj.put("password", contact.getPassword());
+                obj.put(BUMeetConstants.FIRST_NAME,contact.getFirstName());
+                obj.put(BUMeetConstants.LAST_NAME,contact.getLastName());
+                obj.put(BUMeetConstants.EMAIL_ID,contact.getEmailID());
+                obj.put(BUMeetConstants.PASSWORD, contact.getPassword());
             } catch (JSONException e) {
                 e.printStackTrace();
             }
             ObjectMapper mapper = new ObjectMapper();
             try {
-                printout = new DataOutputStream(requestStops.getOutputStream());
+                printout = new DataOutputStream(connection.getOutputStream());
                 printout.write(obj.toString().getBytes());
                 String output;
-                System.out.println("Output from Server:\n");
                 JsonFactory factory = new JsonFactory();
-                JsonParser parser = factory.createParser(requestStops.getInputStream());
+                JsonParser parser = factory.createParser(connection.getInputStream());
                 com.fasterxml.jackson.core.JsonToken token = parser.nextToken();
                 System.out.println(token);
-                while(token.toString() != "END_OBJECT"){
-                    System.out.println("in");
-                    if(parser.getValueAsString() == "responseMessage"){
+                while(token.toString() != BUMeetConstants.END_OBJECT){
+                    if(parser.getValueAsString() == BUMeetConstants.RESPONSE_MESSAGE){
                         token = parser.nextToken();
                         contact.setResponseMessage(parser.getValueAsString());
                     }
                     token = parser.nextToken();
                 }
-
-                /*BufferedReader responseBuffer = new BufferedReader(new InputStreamReader((requestStops.getInputStream())));
-
-                while ((output = responseBuffer.readLine()) != null) {
-                    System.out.println(output);
-                }*/
-
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            requestStops.disconnect();
-
+            connection.disconnect();
+        }
         return params;
     }
 
     @Override
     protected void onPostExecute(Object o) {
 
-        if(contact.getResponseMessage() != null && contact.getResponseMessage().equals("MatchFound")) {
-            Intent intent = new Intent(this.activity, WelcomeActivity.class);
+        if(contact.getResponseMessage() != null && contact.getResponseMessage().equals(BUMeetConstants.REGISTERED)) {
+            Intent intent = new Intent(this.activity, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.putExtra("login",true);
+
             activity.startActivity(intent);
         }else{
-            Toast pass = Toast.makeText(this.activity, "Invalid credentials try again", Toast.LENGTH_SHORT);
+            Toast pass = Toast.makeText(this.activity, BUMeetConstants.USER_EXISTS_ERROR_MSG, Toast.LENGTH_SHORT);
             pass.show();
         }
     }
