@@ -10,4 +10,8 @@
         android:id="@+id/SignOut"
         android:title="Sign Out"
         />
+    <item
+        android:id="@+id/InviteFriends"
+        android:title="Invite Friends"
+        />
 </menu>

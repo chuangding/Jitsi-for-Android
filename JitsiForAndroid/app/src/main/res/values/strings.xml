@@ -13,4 +13,7 @@
     <string name="title_activity_new_contacts">NewContacts</string>
     <string name="title_activity_friends">Friends</string>
     <string name="title_activity_add_friends">AddFriends</string>
+    <string name="title_activity_upload_image">UploadImage</string>
+    <string name="title_activity_select_friends">SelectFriends</string>
+    <string name="title_activity_profile">profile</string>
 </resources>
