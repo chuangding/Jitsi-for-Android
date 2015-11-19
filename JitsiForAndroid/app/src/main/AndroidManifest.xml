@@ -94,6 +94,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.bu.meet.client.WelcomeActivity" />
         </activity>
+        <activity
+            android:name=".client.profile"
+            android:label="@string/title_activity_profile"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
     </application>
 
 </manifest>
