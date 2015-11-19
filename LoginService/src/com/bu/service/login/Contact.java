@@ -1,5 +1,7 @@
 package com.bu.service.login;
 
+import java.util.ArrayList;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
@@ -10,8 +12,15 @@ public class Contact {
 	private String lastName;
 	private String userName;
 	private String password;
-	private boolean loginSatus;
+	private boolean loginStatus;
+	private String contactEmail;
+	private String responseMessage;
+	private ArrayList<String> contactList = new ArrayList<String>();
+	private String profilePic;
+	//private Byte profilePicBmp;
 	
+	public Contact() { }
+
 	
 	public String getFirstName() {
 		return firstName;
@@ -43,11 +52,64 @@ public class Contact {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public boolean isLoginSatus() {
-		return loginSatus;
+	public boolean isLoginStatus() {
+		return loginStatus;
 	}
-	public void setLoginSatus(boolean loginSatus) {
-		this.loginSatus = loginSatus;
+	public void setLoginStatus(boolean loginSatus) {
+		this.loginStatus = loginSatus;
 	}
+	public String getContactEmail() {
+		return contactEmail;
+	}
+
+
+	public void setContactEmail(String contactEmail) {
+		this.contactEmail = contactEmail;
+	}
+
+
+	public String getResponseMessage() {
+		return responseMessage;
+	}
+
+
+	public void setResponseMessage(String responseMessage) {
+		this.responseMessage = responseMessage;
+	}
+	
+	public ArrayList<String> getContactList() {
+		return contactList;
+	}
+
+
+	public void setContactList(ArrayList<String> contactList) {
+		this.contactList = contactList;
+	}
+	
+	public String getProfilePic() {
+		return profilePic;
+	}
+
+
+	public void setProfilePic(String profilePic) {
+		this.profilePic = profilePic;
+	}
+
+	@Override
+	
+	public String toString() {
+
+		return new StringBuffer("firstName : ").append(this.firstName)
+
+				.append("lastName : ").append(this.lastName)
+
+				.append("password : ").append(this.password).append("emailID : ")
+
+				.append(this.emailID).append("loginStatus :").append(this.loginStatus)
+				
+				.append("responseMessage :").append(this.responseMessage).toString();
+
+	}
+
 	
 }
