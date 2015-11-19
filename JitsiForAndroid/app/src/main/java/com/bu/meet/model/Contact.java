@@ -1,15 +1,21 @@
-package com.bu.meet.login;
+package com.bu.meet.model;
+
+import java.util.ArrayList;
 
 /**
  * Created by HL on 30-09-2015.
  */
 public class Contact {
 
-    String firstName;
-    String emailID;
-    String lastName;
-    String password;
-    String responseMessage;
+    private String firstName;
+    private String emailID;
+    private String lastName;
+    private String password;
+    private String responseMessage;
+    private String friendEmailID;
+    private String profilePic;
+    private ArrayList<String> contactList = new ArrayList<String>();
+
 
     public String getFirstName() {
         return firstName;
@@ -46,8 +52,33 @@ public class Contact {
         return responseMessage;
     }
 
+
+
     public void setResponseMessage(String responseMessage) {
         this.responseMessage = responseMessage;
+    }
+
+    public String getFriendEmailID() {
+        return friendEmailID;
+    }
+
+    public void setFriendEmailID(String friendEmailID) {
+        this.friendEmailID = friendEmailID;
+    }
+
+    public ArrayList<String> getContactList() {
+        return contactList;
+    }
+
+
+    public void setContactList(ArrayList<String> contactList) {
+        this.contactList = contactList;
+    }
+    public String getProfilePic() {
+        return profilePic;
+    }
+    public void setProfilePic(String profilePic) {
+        this.profilePic = profilePic;
     }
 
     public String toString() {

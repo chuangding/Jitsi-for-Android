@@ -1,4 +1,4 @@
-package com.bu.meet.client;
+package com.bu.meet.login;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bu.meet.R;
+import com.bu.meet.client.WelcomeActivity;
+import com.bu.meet.util.BUMeetConstants;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -81,7 +83,7 @@ public class FacebookFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         LoginButton loginButton = (LoginButton) view.findViewById(R.id.login_button);
-        loginButton.setReadPermissions("user_friends");
+        loginButton.setReadPermissions(BUMeetConstants.USER_FRIENDS);
         loginButton.setFragment(this);
         loginButton.registerCallback(mCallbackManager, mCallback);
     }

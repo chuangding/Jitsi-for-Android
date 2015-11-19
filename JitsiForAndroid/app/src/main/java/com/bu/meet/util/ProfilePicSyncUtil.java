@@ -1,11 +1,14 @@
-package com.bu.meet.login;
+package com.bu.meet.util;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
-import com.bu.meet.client.MainActivity;
+import com.bu.meet.client.WelcomeActivity;
+import com.bu.meet.model.Contact;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParser;
 
@@ -20,15 +23,13 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-
 /**
- * Created by Seshank on 11/3/2015.
+ * Created by Karunesh on 11/18/2015.
  */
-public class DBSyncUtil extends AsyncTask {
-
+public class ProfilePicSyncUtil extends AsyncTask{
     Activity activity = null;
     Contact contact = null;
-    DBSyncUtil(Activity activity){
+    public ProfilePicSyncUtil(Activity activity){
         this.activity = activity;
     }
     @Override
@@ -36,44 +37,44 @@ public class DBSyncUtil extends AsyncTask {
         {
             URL url = null;
             try {
-                url = new URL("http://Default-Environment-tvztzayeca.elasticbeanstalk.com/api/register");
+                url = new URL("http://Default-Environment-tvztzayeca.elasticbeanstalk.com/api/updateprofilepic");
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
-            HttpURLConnection requestStops = null;
+            HttpURLConnection connection = null;
             try {
-                requestStops = (HttpURLConnection) url.openConnection();
+                connection = (HttpURLConnection) url.openConnection();
             } catch (IOException e) {
                 e.printStackTrace();
             }
             DataOutputStream printout;
             DataInputStream input;
-            requestStops.setRequestProperty("Content-Type", "application/json");
-            requestStops.setDoInput(true);
-            requestStops.setDoOutput(true);
+            connection.setRequestProperty("Content-Type", "application/json");
+            connection.setDoInput(true);
+            connection.setDoOutput(true);
             try {
-                requestStops.connect();
+                connection.connect();
             } catch (IOException e) {
                 e.printStackTrace();
             }
             contact = (Contact)params[0];
             JSONObject obj = new JSONObject();
             try {
-                obj.put("firstName",contact.getFirstName());
-                obj.put("lastName",contact.getLastName());
+                obj.put("firstName","");
+                obj.put("lastName","");
                 obj.put("emailID",contact.getEmailID());
-                obj.put("password", contact.getPassword());
+                obj.put("profilePic",contact.getProfilePic());
             } catch (JSONException e) {
                 e.printStackTrace();
             }
             ObjectMapper mapper = new ObjectMapper();
             try {
-                printout = new DataOutputStream(requestStops.getOutputStream());
+                printout = new DataOutputStream(connection.getOutputStream());
                 printout.write(obj.toString().getBytes());
                 String output;
                 System.out.println("Output from Server:\n");
                 JsonFactory factory = new JsonFactory();
-                JsonParser parser = factory.createParser(requestStops.getInputStream());
+                JsonParser parser = factory.createParser(connection.getInputStream());
                 com.fasterxml.jackson.core.JsonToken token = parser.nextToken();
                 System.out.println(token);
                 while(token.toString() != "END_OBJECT"){
@@ -94,7 +95,7 @@ public class DBSyncUtil extends AsyncTask {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            requestStops.disconnect();
+            connection.disconnect();
         }
         return params;
     }
@@ -102,10 +103,16 @@ public class DBSyncUtil extends AsyncTask {
     @Override
     protected void onPostExecute(Object o) {
 
-        if(contact.getResponseMessage() != null && contact.getResponseMessage().equals("Registered")) {
-            Intent intent = new Intent(this.activity, MainActivity.class);
+        if(contact.getResponseMessage() != null && contact.getResponseMessage().equals("Profile Pic Uploaded")) {
+            Intent intent = new Intent(this.activity, WelcomeActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
+            intent.putExtra(BUMeetConstants.LOGIN,true);
+           // Gson gson = new Gson();
+            //String contactJson = gson.toJson(contact);
+            SharedPreferences sharedpreferences = activity.getSharedPreferences(BUMeetConstants.CURRENT_USER, Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedpreferences.edit();
+            editor.putString("profilePic", contact.getProfilePic());
+            editor.commit();
             activity.startActivity(intent);
         }else{
             Toast pass = Toast.makeText(this.activity, "user already exists or there is an issue with connectivity", Toast.LENGTH_SHORT);
