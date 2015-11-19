@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.content.IntentSender;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -12,10 +11,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.bu.meet.R;
-import com.bu.meet.login.Contact;
-import com.bu.meet.login.DatabaseHelper;
+import com.bu.meet.model.Contact;
 import com.bu.meet.login.Register;
-import com.bu.meet.login.SignInUtil;
+import com.bu.meet.util.BUMeetConstants;
+import com.bu.meet.util.SignInUtil;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
@@ -23,11 +22,13 @@ import com.google.android.gms.plus.People;
 import com.google.android.gms.plus.Plus;
 import com.google.android.gms.plus.model.people.Person;
 
+/**
+ * @author Ganesh Seshank
+ */
 public class MainActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
         View.OnClickListener, ResultCallback<People.LoadPeopleResult> {
 
-    DatabaseHelper helper=new DatabaseHelper(this);
     Button bLogin;
     EditText etUsername,etPassword;
     TextView tvRegisterLink;
@@ -47,12 +48,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
         etUsername = (EditText)findViewById(R.id.TFusername);
         etPassword = (EditText)findViewById(R.id.TFpassword);
-        //bLogin = (Button)findViewById(R.id.bLogin);
-        //tvRegisterLink = (TextView)findViewById(R.id.tvRegisterLink);
-
-        //bLogin.setOnClickListener(this);
-       // tvRegisterLink.setOnClickListener(this);
-
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
@@ -64,14 +59,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         findViewById(R.id.sign_in_button).setOnClickListener(this);
 
     }
-
-
-    //@Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_main, menu);
-//        return true;
-//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -114,27 +101,23 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         //Log.d(TAG, "onConnected:" + bundle);
         Bundle extras = getIntent().getExtras();
         if(extras!=null) {
-            System.out.println(extras.getBoolean("signout"));
-            if(extras.get("signout")!=null && extras.getBoolean("signout")){
-                System.out.println("extra:"+extras.getBoolean("signout"));
-                System.out.println("is api connected??:"+mGoogleApiClient.isConnected());
+            if(extras.get(BUMeetConstants.SIGN_OUT)!=null && extras.getBoolean(BUMeetConstants.SIGN_OUT)){
                 if(mGoogleApiClient.isConnected()){
-                    System.out.println("Disconnecting..........");
                     Plus.AccountApi.clearDefaultAccount(mGoogleApiClient);
                     mGoogleApiClient.disconnect();
 
-                    getIntent().putExtra("signout",false);
+                    getIntent().putExtra(BUMeetConstants.SIGN_OUT,false);
                 }
             }
         }
         mShouldResolve = false;
-        System.out.println("Connected");
         System.out.println(mGoogleApiClient.isConnected());
 
-        String personName = "";
-        String personPhoto= "";
-        String personGooglePlusProfile = "";
+        String personName = BUMeetConstants.EMPTY_STRING;
+        String personPhoto= BUMeetConstants.EMPTY_STRING;
+        String personGooglePlusProfile = BUMeetConstants.EMPTY_STRING;
         Person currentPerson = null;
+        String currentPersonEmail = null;
 
         if(mGoogleApiClient.isConnected()) {
 
@@ -146,14 +129,13 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
             if (Plus.PeopleApi.getCurrentPerson(mGoogleApiClient) != null) {
                 currentPerson = Plus.PeopleApi.getCurrentPerson(mGoogleApiClient);
                 personName = currentPerson.getDisplayName();
-                System.out.println("Name" + personName);
                 personPhoto = currentPerson.getImage().getUrl();
                 personGooglePlusProfile = currentPerson.getUrl();
+                currentPersonEmail = Plus.AccountApi.getAccountName(mGoogleApiClient);
             }
-            intent.putExtra("DisplayName",personName);
-            intent.putExtra("Photo",personPhoto);
-            intent.putExtra("login",true);
-
+            intent.putExtra(BUMeetConstants.DISPLAY_NAME, personName);
+            intent.putExtra(BUMeetConstants.PHOTO, personPhoto);
+            intent.putExtra(BUMeetConstants.LOGIN, true);
             startActivity(intent);
         }
         // Show the signed-in UI
@@ -171,7 +153,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         // grant permissions or resolve an error in order to sign in. Refer to the javadoc for
         // ConnectionResult to see possible error codes.
         // Log.d(TAG, "onConnectionFailed:" + connectionResult);
-        System.out.println("failed");
         if (!mIsResolving && mShouldResolve) {
             if (connectionResult.hasResolution()) {
                 try {
@@ -234,22 +215,10 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
             user.setEmailID(str);
             user.setPassword(pass);
             new SignInUtil(this).execute(user);
-         /*   String password= helper.searchPass(str);
-            if (pass.equals(password)) {
-                Intent i = new Intent(MainActivity.this, WelcomeActivity.class);
-                i.putExtra("Username", str);
-                i.putExtra("login",true);
-                startActivity(i);
-            }
-            else
-            {
-                Toast temp=Toast.makeText(MainActivity.this,"Username & Passwords dont match",Toast.LENGTH_SHORT);
-                temp.show();
-            }
-        }*/}
+         }
             if (v.getId() == R.id.Bsignup) {
                 Intent i = new Intent(MainActivity.this, Register.class);
-                i.putExtra("login", true);
+                i.putExtra(BUMeetConstants.LOGIN, true);
                 startActivity(i);
             }
 

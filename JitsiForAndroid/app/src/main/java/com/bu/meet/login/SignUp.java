@@ -7,6 +7,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.bu.meet.R;
+import com.bu.meet.model.Contact;
+import com.bu.meet.util.DBSyncUtil;
 
 import java.io.IOException;
 
@@ -15,7 +17,6 @@ import java.io.IOException;
  */
 public class SignUp extends Activity {
 
-    DatabaseHelper helper=new DatabaseHelper(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

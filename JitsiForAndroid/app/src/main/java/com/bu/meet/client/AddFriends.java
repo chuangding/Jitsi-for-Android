@@ -1,16 +1,20 @@
 package com.bu.meet.client;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.bu.meet.R;
-import com.bu.meet.login.AddContactUtil;
-import com.bu.meet.login.Contact;
+import com.bu.meet.util.AddContactUtil;
+import com.bu.meet.model.Contact;
+import com.bu.meet.util.BUMeetConstants;
 
 public class AddFriends extends AppCompatActivity implements View.OnClickListener{
 
@@ -39,8 +43,8 @@ public class AddFriends extends AppCompatActivity implements View.OnClickListene
         // connect in the future.
 
         Intent intent = new Intent(this,MainActivity.class);
-        intent.putExtra("signout", true);
-        intent.putExtra("login",false);
+        intent.putExtra(BUMeetConstants.SIGN_OUT, true);
+        intent.putExtra(BUMeetConstants.LOGIN,false);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
         //showSignedOutUI();
@@ -56,20 +60,9 @@ public class AddFriends extends AppCompatActivity implements View.OnClickListene
                 this.finish();
                 return true;
             case R.id.SignOut:
-                //Toast.makeText(getApplicationContext(),item.toString(),Toast.LENGTH_SHORT).show();
                 onSignOutClicked();
                 break;
-//            default:
-//                return super.onOptionsItemSelected(item);
         }
-
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-//
         return super.onOptionsItemSelected(item);
     }
 
@@ -84,7 +77,16 @@ public class AddFriends extends AppCompatActivity implements View.OnClickListene
 
         Contact contact = new Contact();
         EditText email = (EditText) findViewById(R.id.friendEmailID);
-        contact.setEmailID(email.getText().toString());
-        new AddContactUtil(this).execute(contact);
+
+
+        SharedPreferences sharedpreferences = getSharedPreferences(BUMeetConstants.CURRENT_USER, Context.MODE_PRIVATE);
+        if(!email.equals(sharedpreferences.getString(BUMeetConstants.EMAIL,BUMeetConstants.EMPTY_STRING))) {
+            contact.setEmailID(sharedpreferences.getString(BUMeetConstants.EMAIL, BUMeetConstants.EMPTY_STRING));
+            contact.setFriendEmailID(email.getText().toString());
+            new AddContactUtil(this).execute(contact);
+        }else{
+            Toast toast = Toast.makeText(getApplicationContext(), BUMeetConstants.SELF_ADD_ERROR_MSG, Toast.LENGTH_SHORT);
+            toast.show();
+        }
     }
 }
