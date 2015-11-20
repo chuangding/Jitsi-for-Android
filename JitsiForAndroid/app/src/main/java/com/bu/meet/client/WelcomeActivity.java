@@ -130,6 +130,10 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
                 startActivity(i);*/
                 new DisplayContactListUtil(this).execute(currentUser,BUMeetConstants.FROM_WELCOME,BUMeetConstants.EMPTY_STRING);
                 break;
+            case R.id.item_option3:
+                Intent i = new Intent(WelcomeActivity.this,Profilenew.class);
+                startActivity(i);
+                break;
         }
 
         return super.onOptionsItemSelected(item);

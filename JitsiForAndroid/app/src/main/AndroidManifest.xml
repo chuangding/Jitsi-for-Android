@@ -77,10 +77,10 @@
         <activity
             android:name=".client.AddFriends"
             android:label="@string/title_activity_add_friends"
-            android:parentActivityName=".client.WelcomeActivity" >
+            android:parentActivityName=".client.Friends" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.bu.meet.client.WelcomeActivity" />
+                android:value="com.bu.meet.client.Friends" />
         </activity>
         <activity
             android:name=".client.SelectFriends"
@@ -89,15 +89,17 @@
         <activity
             android:name=".client.UploadImageActivity"
             android:label="@string/title_activity_upload_image"
-            android:parentActivityName=".client.WelcomeActivity" >
+            android:parentActivityName=".client.AddFriends" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.bu.meet.client.WelcomeActivity" />
+                android:value="com.bu.meet.client.AddFriends" />
         </activity>
         <activity
-            android:name=".client.profile"
-            android:label="@string/title_activity_profile"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:name=".client.Profilenew"
+            android:label="@string/title_activity_profilenew" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.bu.meet.client.Friends" />
         </activity>
     </application>
 

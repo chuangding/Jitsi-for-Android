@@ -16,4 +16,5 @@
     <string name="title_activity_upload_image">UploadImage</string>
     <string name="title_activity_select_friends">SelectFriends</string>
     <string name="title_activity_profile">profile</string>
+    <string name="title_activity_profilenew">Profilenew</string>
 </resources>

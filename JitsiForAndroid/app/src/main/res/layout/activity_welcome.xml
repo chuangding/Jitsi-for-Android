@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#d1dac9"
+    android:background="#FFF"
     android:orientation="vertical">
 
 
@@ -13,7 +13,7 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="70dp"
         android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
-        android:background="#a2ab9a">
+        android:background="#FFF">
         <!--<TextView-->
             <!--android:layout_width="wrap_content"-->
             <!--android:layout_height="wrap_content"-->
