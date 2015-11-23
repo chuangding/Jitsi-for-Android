@@ -1,6 +1,7 @@
 package com.bu.meet.client;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -60,8 +61,10 @@ public class Profilenew extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.editpage) {
+            Intent i = new Intent(Profilenew.this,UploadImageActivity.class);
+            startActivity(i);
+
         }
 
         return super.onOptionsItemSelected(item);
