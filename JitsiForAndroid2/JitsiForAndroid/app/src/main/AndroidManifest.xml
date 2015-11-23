@@ -96,10 +96,14 @@
         </activity>
         <activity
             android:name=".client.Profilenew"
-            android:label="@string/title_activity_profilenew" >
+            android:label="Profile" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.bu.meet.client.Friends" />
+        </activity>
+        <activity
+            android:name=".client.popupwindow1"
+            android:label="@string/title_activity_popupwindow1" >
         </activity>
     </application>
 
