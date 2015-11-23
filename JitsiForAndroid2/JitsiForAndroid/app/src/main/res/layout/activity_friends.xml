@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF"
+    android:orientation="vertical">
+<ListView
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id="@+id/contact_List"
+    ></ListView>
+
+
+</LinearLayout>
