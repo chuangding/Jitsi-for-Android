@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Test2</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_fg1">fg1</string>
+    <string name="title_activity_fg2">fg2</string>
+    <string name="title_activity_fg3">fg3</string>
+</resources>
