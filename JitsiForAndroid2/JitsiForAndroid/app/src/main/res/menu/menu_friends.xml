@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context="com.bu.meet.client.Friends">
+
+    <item
+        android:id="@+id/item_addContact"
+        android:title="Add Contact"
+        />
+    <item
+        android:id="@+id/SignOut"
+        android:title="Sign Out"
+        />
+    <!--<item-->
+        <!--android:id="@+id/item_option2"-->
+        <!--android:title="option2"-->
+        <!--/>-->
+    <!--<item-->
+        <!--android:id="@+id/item_option3"-->
+        <!--android:title="option3"-->
+        <!--/>-->
+</menu>

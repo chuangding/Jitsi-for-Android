@@ -1,0 +1,191 @@
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:orientation="vertical"-->
+    <!--android:paddingBottom="@dimen/activity_vertical_margin"-->
+    <!--android:paddingLeft="@dimen/activity_horizontal_margin"-->
+    <!--android:paddingRight="@dimen/activity_horizontal_margin"-->
+    <!--android:paddingTop="@dimen/activity_vertical_margin"-->
+    <!--tools:context=".MainActivity" >-->
+
+    <!--<ImageView-->
+        <!--android:id="@+id/uploadImage"-->
+        <!--android:layout_width="200dp"-->
+        <!--android:layout_height="200dp"-->
+        <!--android:adjustViewBounds="true" />-->
+
+    <!--<Button-->
+        <!--android:id="@+id/selectImageButton"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="15dp"-->
+        <!--android:text="Select Image" />-->
+
+    <!--<Button-->
+        <!--android:id="@+id/uploadButton"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Upload Image" />-->
+
+<!--</LinearLayout>-->
+
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/uploadImage"
+        android:adjustViewBounds="true"
+        android:onClick="onClick"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"/>
+
+
+    <LinearLayout
+        android:id="@+id/edit_email"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/uploadImage">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.67"
+            android:text="Email:"
+            android:ems="10"
+            android:id="@+id/Text_Email"
+            android:layout_marginTop="37dp"
+            android:gravity="right"
+            style="@style/NameField"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_below="@+id/imageview_profile"
+            android:layout_centerHorizontal="true"/>
+
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.33"
+            android:ems="10"
+            android:id="@+id/EditText_Email"
+            android:layout_marginTop="30dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_below="@+id/imageview_profile"
+            android:layout_centerHorizontal="true"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/edit_fname"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/edit_email">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.67"
+            android:text="First Name:"
+            android:gravity="right"
+            android:ems="10"
+            android:id="@+id/Text_FName"
+            android:layout_marginTop="16dp"
+            style="@style/NameField"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_centerHorizontal="true"/>
+
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.33"
+            android:ems="10"
+            android:id="@+id/EditText_FName"
+            android:layout_marginTop="10dp"
+            style="@style/NameField"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_centerHorizontal="true"/>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/edit_lname"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/edit_fname">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.67"
+            android:text="Last Name:"
+            android:gravity="right"
+            android:ems="10"
+            android:id="@+id/Text_LName"
+            android:layout_marginTop="15dp"
+            style="@style/NameField"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_centerHorizontal="true"/>
+
+
+        <EditText
+
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.33"
+            android:id="@+id/EditText_LName"
+            android:layout_marginTop="10dp"
+            style="@style/NameField"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_centerHorizontal="true"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_layout_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/edit_lname">
+
+    <Button
+        android:id="@+id/selectImageButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="2.5dp"
+        android:layout_weight="0.5"
+        android:text="Select Image"
+        android:layout_below="@+id/edit_lname"
+        android:background="@drawable/button"/>
+
+    <Button
+        android:id="@+id/uploadButton"
+        android:layout_marginLeft="2.5dp"
+        android:layout_weight="0.5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Upload Image"
+        android:layout_below="@+id/selectImageButton"
+        android:background="@drawable/button"/>
+    </LinearLayout>
+
+</RelativeLayout>
