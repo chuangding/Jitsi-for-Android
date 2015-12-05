@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
             System.out.println(Plus.PeopleApi.getCurrentPerson(mGoogleApiClient));
 
-            Intent intent = new Intent(this,WelcomeActivity.class);
+            Intent intent = new Intent(this,ButtomBar.class);
             Plus.PeopleApi.loadVisible(mGoogleApiClient, null).setResultCallback(this);
             if (Plus.PeopleApi.getCurrentPerson(mGoogleApiClient) != null) {
                 currentPerson = Plus.PeopleApi.getCurrentPerson(mGoogleApiClient);

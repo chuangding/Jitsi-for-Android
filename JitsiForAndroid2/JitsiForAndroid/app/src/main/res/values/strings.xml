@@ -19,4 +19,5 @@
     <string name="title_activity_profilenew">Profilenew</string>
     <string name="title_activity_edit_profile">editProfile</string>
     <string name="title_activity_popupwindow1">popupwindow1</string>
+    <string name="title_activity_buttom_bar">ButtomBar</string>
 </resources>

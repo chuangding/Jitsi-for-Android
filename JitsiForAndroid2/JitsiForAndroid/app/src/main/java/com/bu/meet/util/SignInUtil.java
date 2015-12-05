@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
+import com.bu.meet.client.ButtomBar;
 import com.bu.meet.client.WelcomeActivity;
 import com.bu.meet.model.Contact;
 import com.fasterxml.jackson.core.JsonFactory;
@@ -105,7 +106,7 @@ public class SignInUtil extends AsyncTask {
     protected void onPostExecute(Object o) {
 
         if(contact.getResponseMessage() != null && contact.getResponseMessage().equals(BUMeetConstants.MATCH_FOUND)) {
-            Intent intent = new Intent(this.activity, WelcomeActivity.class);
+            Intent intent = new Intent(this.activity, ButtomBar.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.putExtra(BUMeetConstants.LOGIN, true);
             SharedPreferences sharedpreferences = activity.getSharedPreferences(BUMeetConstants.CURRENT_USER, Context.MODE_PRIVATE);
