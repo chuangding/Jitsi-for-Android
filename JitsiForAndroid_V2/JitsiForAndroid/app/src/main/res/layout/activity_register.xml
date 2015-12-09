@@ -1,0 +1,76 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:layout_width="match_parent"
+    android:background="#F8F8F8">
+
+    <EditText
+        android:id="@+id/TFname"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:hint="First Name"
+        android:paddingLeft="5dp"
+        android:background="@drawable/group_middle"
+        android:textColor="#000"
+        android:singleLine="true"
+        android:layout_height="45dp" />
+
+    <EditText
+        android:id="@+id/TLname"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="10dp"
+        android:paddingLeft="5dp"
+        android:background="@drawable/group_middle"
+        android:textColor="#000"
+        android:singleLine="true"
+        android:hint="Last Name"
+        android:layout_height="50dp" />
+
+    <EditText
+        android:id="@+id/TFemail"
+        android:layout_width="match_parent"
+        android:hint="Email"
+        android:paddingLeft="5dp"
+        android:background="@drawable/group_middle"
+        android:textColor="#000"
+        android:singleLine="true"
+        android:layout_marginBottom="10dp"
+        android:layout_height="50dp" />
+
+    <EditText
+        android:id="@+id/TFpass1"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="10dp"
+        android:inputType="textPassword"
+        android:paddingLeft="5dp"
+        android:background="@drawable/group_middle"
+        android:textColor="#000"
+        android:singleLine="true"
+        android:hint="Password"
+        android:layout_height="50dp" />
+
+    <EditText
+        android:id="@+id/TFpass2"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="10dp"
+        android:inputType="textPassword"
+        android:hint="Re-enter Password"
+        android:paddingLeft="5dp"
+        android:background="@drawable/group_middle"
+        android:textColor="#000"
+        android:singleLine="true"
+        android:layout_height="50dp" />
+    <Button
+        android:id="@+id/Bsignupbutton"
+        android:text="SIGN UP"
+        android:onClick="onSignUpClick"
+        android:background="@drawable/button"
+        android:layout_width="match_parent"
+        style="@style/button"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>

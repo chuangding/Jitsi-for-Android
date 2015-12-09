@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F8F8"
+    android:orientation="vertical">
+<Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Delete"
+    android:layout_margin="3dp"
+    android:background="@drawable/button"
+    android:id="@+id/delete_Button"/>
+<ListView
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/usermainpage_bg_center"
+    android:id="@+id/contact_List"
+    android:choiceMode="multipleChoice"
+    ></ListView>
+
+
+</LinearLayout>
